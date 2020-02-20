@@ -63,3 +63,15 @@ $kanban-journal-theme: mat-dark-theme($kanban-journal-primary, $kanban-journal-a
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+.light-theme {
+  color: $dark-primary-text;
+  $light-primary: mat-palette($custom-orange);
+  $light-accent: mat-palette($mat-amber, A400, A100, A700);
+  $light-warn: mat-palette($custom-orange);
+  $light-theme: mat-light-theme($kanban-journal-primary, $kanban-journal-accent, $kanban-journal-warn);
+
+  @include angular-material-theme($light-theme);
+}

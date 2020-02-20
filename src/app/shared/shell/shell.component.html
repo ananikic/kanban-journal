@@ -1,5 +1,5 @@
 <mat-sidenav-container class='sidenav-container'>
-<mat-sidenav-content>
+  <mat-sidenav-content>
   <mat-toolbar>
       <span class="logo" routerLink="/"><span title="home"><i class="withText">📔</i></span>Kanban Journal</span>
       <span class="fill-remaining-space"></span>
@@ -30,8 +30,18 @@
       <mat-menu #menuSide="matMenu">
           <button mat-menu-item><span><i class="withText">👸</i>Me</span></button>
           <button mat-menu-item><span><i class="withText">💿</i>Archive</span></button>
+          <a href="https://github.com/ananikic/kanban-journal" target="_blank" mat-menu-item><span><i class="withText">💻</i>Code</span></a>
       </mat-menu>
   </mat-toolbar>
   <ng-content></ng-content>
+  <div class="footer">
+    <mat-button-toggle mat-icon-button *ngIf="!isLight" title="let it be light" (click)="isLight=true; toggleLightTheme()"> 
+      <i class="nav">🌖</i>
+    </mat-button-toggle>
+    <mat-button-toggle mat-icon-button *ngIf="isLight" title="come to the dark side" (click)="isLight=false; toggleLightTheme()">
+     <i class="nav">🌘</i>
+    </mat-button-toggle>
+  </div>
 </mat-sidenav-content>
 </mat-sidenav-container>
+

@@ -1,8 +1,5 @@
 .sidenav-container {
-  height: 100%;
-}
-.sidenav .mat-toolbar {
-  background: inherit;
+  height: 100% !important;
 }
 
 .fill-remaining-space {
@@ -37,6 +34,14 @@ i.withText {
   width: 40px !important;
   height: 40px !important;
   line-height: 40px !important;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: right;
 }
 
 
