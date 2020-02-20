@@ -1,0 +1,37 @@
+<mat-sidenav-container class='sidenav-container'>
+<mat-sidenav-content>
+  <mat-toolbar>
+      <span class="logo" routerLink="/"><span title="home"><i class="withText">📔</i></span>Kanban Journal</span>
+      <span class="fill-remaining-space"></span>
+      <a title="create" mat-mini-fab routerLink="/createPage">
+        <i class="create">📄</i>
+      </a>
+      <button title="find" mat-button [matMenuTriggerFor]="menuFind">
+        <i class="nav">🔎</i>
+      </button>
+      <mat-menu #menuFind="matMenu" xPosition="before">
+        <!-- TODO - add search and recently open pages -->
+      </mat-menu>
+      <button title="important" mat-button [matMenuTriggerFor]="menuImp">
+        <i class="nav">🔖</i>
+      </button>
+      <mat-menu #menuImp="matMenu" xPosition="before">
+        <!-- TODO - add bookmared (important) pages -->
+      </mat-menu> 
+      <button title="fun" mat-button [matMenuTriggerFor]="menuFun">
+        <i class="nav">💛</i>
+      </button>
+      <mat-menu #menuFun="matMenu" xPosition="before">
+        <!-- TODO - add bookmared (loved) pages -->
+      </mat-menu>
+      <button mat-icon-button [matMenuTriggerFor]="menuSide">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menuSide="matMenu">
+          <button mat-menu-item><span><i class="withText">👸</i>Me</span></button>
+          <button mat-menu-item><span><i class="withText">💿</i>Archive</span></button>
+      </mat-menu>
+  </mat-toolbar>
+  <ng-content></ng-content>
+</mat-sidenav-content>
+</mat-sidenav-container>
