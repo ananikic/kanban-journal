@@ -1,6 +1,6 @@
 <mat-sidenav-container>
   <mat-sidenav-content>
-  <mat-toolbar>
+    <mat-toolbar>
       <span class="logo" routerLink="/"><span title="home"><i class="withText">📔</i></span>Kanban Journal</span>
       <span class="fill-remaining-space"></span>
       <a title="create" mat-mini-fab routerLink="/createPage">
@@ -17,7 +17,7 @@
       </button>
       <mat-menu #menuImp="matMenu" xPosition="before">
         <!-- TODO - add bookmared (important) pages -->
-      </mat-menu> 
+      </mat-menu>
       <button title="fun" mat-button [matMenuTriggerFor]="menuFun">
         <i class="nav">💛</i>
       </button>
@@ -28,17 +28,18 @@
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menuSide="matMenu">
-          <button mat-menu-item><span><i class="withText">👸</i>Me</span></button>
-          <button mat-menu-item><span><i class="withText">💿</i>Archive</span></button>
-          <a href="https://github.com/ananikic/kanban-journal" target="_blank" mat-menu-item><span><i class="withText">💻</i>Code</span></a>
+        <button mat-menu-item><span><i class="withText">👸</i>Me</span></button>
+        <button mat-menu-item><span><i class="withText">💿</i>Archive</span></button>
+        <a href="https://github.com/ananikic/kanban-journal" target="_blank" mat-menu-item><span><i
+              class="withText">💻</i>Code</span></a>
       </mat-menu>
-  </mat-toolbar>
-  <ng-content></ng-content>
-  <footer *ngFor="let theme of themes" >
-    <mat-button-toggle mat-icon-button *ngIf="themeService.currentActive() !== theme.name" (click)="setTheme(theme.name)"> 
-      <i class="nav" [title]="theme.title" >{{ theme.icon }}</i>
-    </mat-button-toggle>
-  </footer>
-</mat-sidenav-content>
+    </mat-toolbar>
+    <ng-content></ng-content>
+    <footer *ngFor="let theme of themes">
+      <mat-button-toggle mat-icon-button *ngIf="themeService.currentActive() !== theme.name"
+        (click)="setTheme(theme.name)">
+        <i class="nav" [title]="theme.title">{{ theme.icon }}</i>
+      </mat-button-toggle>
+    </footer>
+  </mat-sidenav-content>
 </mat-sidenav-container>
-

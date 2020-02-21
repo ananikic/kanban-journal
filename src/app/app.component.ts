@@ -1,6 +1,5 @@
-import { Observable } from 'rxjs';
 import { ThemeService } from './services/theme.service';
-import { Component, OnInit, OnChanges, DoCheck } from '@angular/core';
+import { Component } from '@angular/core';
 import { OverlayContainer } from '@angular/cdk/overlay';
 
 @Component({

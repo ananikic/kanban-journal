@@ -1,40 +1,38 @@
-
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 @include mat-core();
 
 $custom-orange: (
-    50: #fff3e0,
-    100: #ffe0b2,
-    200: #ffcc80,
-    300: #ffb74d,
-    400: #ffa726,
-    500: #ff9800,
-    600: #fb8c00,
-    700: #f57c00,
-    800: #ef6c00,
-    900: #e65100,
-    A100: #ffd180,
-    A200: #ffab40,
-    A400: #ff9100,
-    A700: #ff6d00,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500: white,
-        600: white,
-        700: white,
-        800: white,
-        900: white,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700: white,
-    )
+  50: #fff3e0,
+  100: #ffe0b2,
+  200: #ffcc80,
+  300: #ffb74d,
+  400: #ffa726,
+  500: #ff9800,
+  600: #fb8c00,
+  700: #f57c00,
+  800: #ef6c00,
+  900: #e65100,
+  A100: #ffd180,
+  A200: #ffab40,
+  A400: #ff9100,
+  A700: #ff6d00,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: white
+  )
 );
-
 
 $kanban-journal-primary: mat-palette($custom-orange);
 $kanban-journal-accent: mat-palette($mat-green, A200, A100, A400);
@@ -43,8 +41,14 @@ $kanban-journal-warn: mat-palette($custom-orange);
 $kanban-journal-theme-dark: mat-dark-theme($kanban-journal-primary, $kanban-journal-accent, $kanban-journal-warn);
 $kanban-journal-theme-light: mat-light-theme($kanban-journal-primary, $kanban-journal-accent, $kanban-journal-warn);
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .color-scheme-dark {
   @include angular-material-theme($kanban-journal-theme-dark);
@@ -53,4 +57,3 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .color-scheme-light {
   @include angular-material-theme($kanban-journal-theme-light);
 }
-

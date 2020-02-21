@@ -1,23 +1,22 @@
-
 .mat-sidenav-container {
   height: 100% !important;
 }
 
 .fill-remaining-space {
-    flex: 1 1 auto;
-  }
+  flex: 1 1 auto;
+}
 
-.logo{
+.logo {
   margin-right: 20px;
 }
 
 span {
-    cursor: pointer
+  cursor: pointer;
 }
 
 i.nav {
-    font-style: normal;
-    font-size: 2em;
+  font-style: normal;
+  font-size: 2em;
 }
 
 i.create {
@@ -26,10 +25,10 @@ i.create {
 }
 
 i.withText {
-    font-style: normal;
-    font-size: 1.75em;
-    margin-right: 10px;
-  }
+  font-style: normal;
+  font-size: 1.75em;
+  margin-right: 10px;
+}
 
 .mat-fab {
   width: 40px !important;
@@ -44,11 +43,3 @@ footer {
   width: 100%;
   text-align: right;
 }
-
-
-
-
-
-
-
-
