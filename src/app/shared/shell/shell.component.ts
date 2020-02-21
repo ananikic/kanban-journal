@@ -7,19 +7,26 @@ import { Observable } from 'rxjs';
   templateUrl: './shell.component.html',
   styleUrls: ['./shell.component.scss']
 })
-export class ShellComponent implements OnInit {
+export class ShellComponent {
 
-  isLight = false;
-  isLightTheme: Observable<boolean>;
+  isLight: boolean;
+  public themes = [
+    {
+        name: 'light',
+        icon: '🌖',
+        title: 'let there be light'
+    },
+    {
+        name: 'dark',
+        icon: '🌘',
+        title: 'come to the dark side'
+    }
+];
 
   constructor(private themeService: ThemeService) { }
 
-  ngOnInit() {
-    this.isLightTheme = this.themeService.isLightTheme;
-  }
-
-  toggleLightTheme() {
-    this.themeService.setLightTheme(this.isLight);
-  }
+  setTheme(theme: string) {
+    this.themeService.update(theme);
+ }
 
 }

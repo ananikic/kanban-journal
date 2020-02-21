@@ -1,4 +1,4 @@
-<mat-sidenav-container class='sidenav-container'>
+<mat-sidenav-container>
   <mat-sidenav-content>
   <mat-toolbar>
       <span class="logo" routerLink="/"><span title="home"><i class="withText">📔</i></span>Kanban Journal</span>
@@ -34,14 +34,11 @@
       </mat-menu>
   </mat-toolbar>
   <ng-content></ng-content>
-  <div class="footer">
-    <mat-button-toggle mat-icon-button *ngIf="!isLight" title="let it be light" (click)="isLight=true; toggleLightTheme()"> 
-      <i class="nav">🌖</i>
+  <footer *ngFor="let theme of themes" >
+    <mat-button-toggle mat-icon-button *ngIf="themeService.currentActive() !== theme.name" (click)="setTheme(theme.name)"> 
+      <i class="nav" [title]="theme.title" >{{ theme.icon }}</i>
     </mat-button-toggle>
-    <mat-button-toggle mat-icon-button *ngIf="isLight" title="come to the dark side" (click)="isLight=false; toggleLightTheme()">
-     <i class="nav">🌘</i>
-    </mat-button-toggle>
-  </div>
+  </footer>
 </mat-sidenav-content>
 </mat-sidenav-container>
 

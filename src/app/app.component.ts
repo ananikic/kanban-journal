@@ -8,22 +8,12 @@ import { OverlayContainer } from '@angular/cdk/overlay';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
 
+export class AppComponent {
   title = 'kanban-journal';
-  isLightTheme: Observable<boolean>;
-  isLightThemeOld: Observable<boolean>;
 
-  constructor(private themeService: ThemeService, private overlayContainer: OverlayContainer) { }
-
-  ngOnInit(): void {
-    this.isLightTheme = this.themeService.isLightTheme;
-    this.isLightTheme.subscribe( isLight => {
-      if (isLight) {
-        this.overlayContainer.getContainerElement().classList.add('light-theme');
-      } else if (!isLight) {
-        this.overlayContainer.getContainerElement().classList.add('kanban-journal-theme');
-      }
-  });
+  constructor(private themeService: ThemeService, private overlayContainer: OverlayContainer) {
+    this.themeService.load();
   }
+
 }
