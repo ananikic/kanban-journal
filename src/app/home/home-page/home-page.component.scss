@@ -1,0 +1,57 @@
+span {
+    cursor: pointer;
+  }
+
+.first-image {
+  background-image: url("/assets/texture5.jpg");
+  background-color: #cccccc;
+  height: 570px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:  cover;
+  position: relative;
+}
+
+h1.int {
+    color: rgb(248, 207, 214);
+    position: absolute;
+    left: 13%;
+    top: 9%;
+}
+
+h1.sec {
+    color: rgb(247, 179, 190);
+    position: absolute;
+    left: 25.5%;
+    top: 42%;
+}
+
+h1.clean {
+    color: rgb(211, 37, 66);
+    position: absolute;
+    left: 38%;
+    top: 75%;
+}
+
+button.think {
+    position: absolute;
+    left: 79.5%;
+    top: 12%;
+}
+
+button.feel {
+    position: absolute;
+    left: 54%;
+    top: 12.5%;
+}
+
+button.org {
+    position: absolute;
+    left: 67%;
+    top: 78%;
+}
+
+i.home {
+    font-style: normal;
+    font-size: 2em;
+  }
