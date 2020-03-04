@@ -1,3 +1,4 @@
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Component } from '@angular/core';
 import { ThemeService } from './../../services/theme.service';
 
@@ -21,7 +22,7 @@ export class ShellComponent {
     }
   ];
 
-  constructor(private themeService: ThemeService) { }
+  constructor(private themeService: ThemeService, public afAuth: AngularFireAuth) { }
 
   setTheme(theme: string) {
     this.themeService.update(theme);

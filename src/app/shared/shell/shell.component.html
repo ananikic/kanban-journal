@@ -1,6 +1,6 @@
 <mat-sidenav-container>
   <mat-sidenav-content>
-    <mat-toolbar>
+    <mat-toolbar *ngIf="afAuth.authState | async">
       <span class="logo" routerLink="/"><span title="home"><i class="withText">📔</i></span>Kanban Journal</span>
       <span class="fill-remaining-space"></span>
       <a title="create" mat-mini-fab routerLink="/createPage">
@@ -34,12 +34,18 @@
               class="withText">💻</i>Code</span></a>
       </mat-menu>
     </mat-toolbar>
+    <mat-toolbar  *ngIf="!(afAuth.authState | async)">
+      <!-- <span class="fill-remaining-space"></span> -->
+      <span class="logo" routerLink="/"><span title="home"><i class="withText">📔</i></span>Kanban Journal</span>
+      <span class="fill-remaining-space"></span>
+      <a mat-button title="login" routerLink="/login"><i class="nav">🔑</i></a>
+    </mat-toolbar>
     <ng-content></ng-content>
     <footer *ngFor="let theme of themes">
-      <mat-button-toggle mat-icon-button *ngIf="themeService.currentActive() !== theme.name"
+      <button class="changeTheme" mat-icon-button *ngIf="themeService.currentActive() !== theme.name"
         (click)="setTheme(theme.name)">
-        <i class="nav" [title]="theme.title">{{ theme.icon }}</i>
-      </mat-button-toggle>
+        <i class="theme" [title]="theme.title">{{ theme.icon }}</i>
+      </button>
     </footer>
   </mat-sidenav-content>
 </mat-sidenav-container>

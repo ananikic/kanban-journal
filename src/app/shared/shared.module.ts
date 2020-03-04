@@ -9,6 +9,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatCardModule} from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const components = [ShellComponent];
 const modules = [ CommonModule,
@@ -19,7 +22,10 @@ const modules = [ CommonModule,
   MatButtonModule,
   MatSidenavModule,
   MatButtonToggleModule,
-  MatCardModule
+  MatCardModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSnackBarModule
 ];
 
 @NgModule({

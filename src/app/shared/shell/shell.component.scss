@@ -36,6 +36,16 @@ i.withText {
   line-height: 40px !important;
 }
 
+button.changeTheme {
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+i.theme {
+  font-style: normal;
+  font-size: 2.3em;
+}
+
 footer {
   position: fixed;
   left: 0;

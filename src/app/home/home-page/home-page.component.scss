@@ -1,36 +1,68 @@
-span {
-    cursor: pointer;
-  }
+// span {
+//     cursor: pointer;
+//   }
 
-.first-image {
-  background-image: url("/assets/texture5.jpg");
-  background-color: #cccccc;
-  height: 570px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size:  cover;
-  position: relative;
+// .first-image {
+//   background-image: url("/assets/texture5.jpg");
+//   background-color: #cccccc;
+//   height: 570px;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size:  cover;
+//   position: relative;
+// }
+
+// .container {
+//     background-color: rgb(240, 216, 220);
+//     width: 98%;
+//     height: 83.5%;
+//     background-position: center !important;
+//     background-repeat: no-repeat;
+//     background-size:  cover;
+//     position: absolute !important;
+//   } 
+
+button.int {
+    background-color: rgb(164, 184, 236);
+    position: absolute;
+    width: 160px;
+    height: 320px;
+    left: 13%;
+    top: 9%;
+    // padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 30px;
+    // margin: 4px 2px;
 }
 
-h1.int {
-    color: rgb(248, 207, 214);
+button.sec {
+    background-color: rgb(122, 156, 241);
     position: absolute;
-    left: 13%;
+    width: 160px;
+    height: 320px;
+    // padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 30px;
+    // margin: 4px 2px;
+    left: 25.5%;
     top: 9%;
 }
 
-h1.sec {
-    color: rgb(247, 179, 190);
+button.clean {
     position: absolute;
-    left: 25.5%;
-    top: 42%;
-}
-
-h1.clean {
-    color: rgb(211, 37, 66);
+    background-color: rgb(68, 100, 182);
     position: absolute;
+    width: 160px;
+    height: 320px;
+    // padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 30px;
+    // margin: 4px 2px;
     left: 38%;
-    top: 75%;
+    top: 9%;
 }
 
 button.think {

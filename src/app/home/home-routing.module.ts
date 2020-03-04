@@ -6,7 +6,7 @@ import { HomeGroupComponent } from './home-group/home-group.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent},
-  { path: ':id', component: HomeGroupComponent }
+  { path: '', component: HomeGroupComponent }
 ];
 
 @NgModule({
