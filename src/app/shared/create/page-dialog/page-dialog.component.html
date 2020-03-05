@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Create Custom Page</h1>
+<div mat-dialog-content>
+    <p>What's this page about?</p>
+    <mat-form-field>
+        <input placeholder="title" matInput [(ngModel)]="data.title" />
+    </mat-form-field>
+</div>
+<h1 mat-dialog-title>OR</h1>
+<p>Wanna choose a template?</p>
+<mat-radio-group class="template-radio-group" aria-label="Select an option">
+    <mat-radio-button class="template-radio-btn" *ngFor="let template of templates" [value]="template">
+        {{template}}
+    </mat-radio-button>
+</mat-radio-group>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data.title" cdkFocusInitial>
+        Create
+    </button>
+</div>

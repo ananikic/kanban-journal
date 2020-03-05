@@ -3,9 +3,7 @@
     <mat-toolbar *ngIf="afAuth.authState | async">
       <span class="logo" routerLink="/"><span title="home"><i class="withText">📔</i></span>Kanban Journal</span>
       <span class="fill-remaining-space"></span>
-      <a title="create" mat-mini-fab routerLink="/createPage">
-        <i class="create">📄</i>
-      </a>
+      <app-create></app-create>
       <button title="find" mat-button [matMenuTriggerFor]="menuFind">
         <i class="nav">🔎</i>
       </button>
