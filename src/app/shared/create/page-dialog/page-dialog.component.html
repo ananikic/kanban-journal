@@ -1,17 +1,33 @@
-<h1 mat-dialog-title>Create Custom Page</h1>
+<h1 mat-dialog-title>What's this page about?</h1>
 <div mat-dialog-content>
-    <p>What's this page about?</p>
     <mat-form-field>
-        <input placeholder="title" matInput [(ngModel)]="data.title" />
+        <input placeholder="title" matInput [(ngModel)]="data.title" autocomplete="off" />
     </mat-form-field>
 </div>
-<h1 mat-dialog-title>OR</h1>
-<p>Wanna choose a template?</p>
-<mat-radio-group class="template-radio-group" aria-label="Select an option">
-    <mat-radio-button class="template-radio-btn" *ngFor="let template of templates" [value]="template">
-        {{template}}
-    </mat-radio-button>
-</mat-radio-group>
+<p>You can also choose a template to...</p>
+<perfect-scrollbar class="container">
+        <mat-radio-group class="template-radio-group" aria-label="Select an option">
+            <!-- <h5>Organize your days <button mat-button (click)="openTemplate('calendarTemplates')">📅</button></h5> -->
+            <h4>organize your days 📅</h4>
+            <mat-radio-button class="template-radio-btn" *ngFor="let template of calendarTemplates" [value]="template">
+                {{template}}
+            </mat-radio-button>
+            <h4>organize your work flow 🌊</h4>
+            <mat-radio-button class="template-radio-btn" *ngFor="let template of workTemplates" [value]="template">
+                {{template}}
+            </mat-radio-button>
+            <h4>organize your wants 💸</h4>
+            <mat-radio-button class="template-radio-btn" *ngFor="let template of wantsTemplates" [value]="template">
+                {{template}}
+            </mat-radio-button>
+            <h4>organize yourself 🎭</h4>
+            <mat-radio-button class="template-radio-btn" *ngFor="let template of youTemplates" [value]="template">
+                {{template}}
+            </mat-radio-button>
+        </mat-radio-group>
+</perfect-scrollbar>
+
+
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Cancel</button>
     <button mat-button [mat-dialog-close]="data.title" cdkFocusInitial>
