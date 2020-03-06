@@ -22,7 +22,7 @@ export class ShellComponent {
     }
   ];
 
-  constructor(private themeService: ThemeService, public afAuth: AngularFireAuth) { }
+  constructor(public themeService: ThemeService, public afAuth: AngularFireAuth) { }
 
   setTheme(theme: string) {
     this.themeService.update(theme);

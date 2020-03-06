@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "kanban-journal": {
+      "hosting": {
+        "kanban-journal": [
+          "kanban-journal"
+        ]
+      }
+    }
+  }
+}
