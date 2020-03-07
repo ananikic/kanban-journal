@@ -32,3 +32,16 @@ textarea {
   display: block;
   width: 100%;
 }
+
+button.templ-preview {
+  height: 2em !important;
+  width: 2em !important;
+  // padding: 2px !important;
+  background-color:  #d7dcdf5e !important;
+}
+
+i {
+  font-style: normal;
+  font-size: 1em;
+  margin: 2px;
+}

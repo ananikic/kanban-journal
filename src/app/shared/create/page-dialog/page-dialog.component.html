@@ -8,7 +8,7 @@
 <perfect-scrollbar class="container">
         <mat-radio-group class="template-radio-group" aria-label="Select an option">
             <!-- <h5>Organize your days <button mat-button (click)="openTemplate('calendarTemplates')">📅</button></h5> -->
-            <h4>organize your days 📅</h4>
+            <h4>organize your days <button class="templ-preview" mat-icon-button><i>📅</i></button></h4>
             <mat-radio-button class="template-radio-btn" *ngFor="let template of calendarTemplates" [value]="template">
                 {{template}}
             </mat-radio-button>
