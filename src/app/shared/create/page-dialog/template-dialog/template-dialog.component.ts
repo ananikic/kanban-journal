@@ -12,14 +12,13 @@ export class TemplateDialogComponent implements OnInit {
   templateName: string;
 
   constructor(public dialogRef: MatDialogRef<PageDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, public dialog: MatDialog) { }
+              @Inject(MAT_DIALOG_DATA) public data: any, public dialog: MatDialog) { }
 
   onNoClick() {
     this.dialogRef.close();
   }
   ngOnInit() {
     this.templateName = this.data.template;
-    console.log(this.templateName)
   }
 
 

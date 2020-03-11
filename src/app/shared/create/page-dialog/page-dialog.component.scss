@@ -34,14 +34,24 @@ textarea {
 }
 
 button.templ-preview {
-  height: 2em !important;
   width: 2em !important;
-  // padding: 2px !important;
-  background-color:  #d7dcdf5e !important;
+  height: 2em !important;
 }
 
 i {
   font-style: normal;
   font-size: 1em;
+  margin: 2px;
+}
+
+i.larger {
+  font-style: normal;
+  font-size: 1.2em;
+  margin: 2px;
+}
+
+i.larger-2 {
+  font-style: normal;
+  font-size: 1.1em;
   margin: 2px;
 }

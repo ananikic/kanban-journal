@@ -9,10 +9,10 @@ import { TemplateDialogComponent } from './template-dialog/template-dialog.compo
 })
 export class PageDialogComponent {
 
-  calendarTemplates: string[] = [ 'day', 'week', 'month', 'year', 'future'];
+  calendarTemplates: string[] = ['week', 'month', 'year', 'future'];
   workTemplates: string[] = ['work', 'feynman studying'];
   wantsTemplates: string[] = ['shopping "list"', 'to read', 'recipes'];
-  youTemplates: string[] = ['feelings and thoughts']
+  youTemplates: string[] = ['feelings and thoughts'];
 
   constructor(public dialogRef: MatDialogRef<PageDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any, public dialog: MatDialog ) { }
@@ -22,7 +22,6 @@ export class PageDialogComponent {
   }
 
   openTemplate(template: string): void {
-    console.log(template)
     this.dialog.open(TemplateDialogComponent, {
       width: '1400px',
       height: '650px',
