@@ -1,1 +1,8 @@
-<p>page works!</p>
+<h1>{{title}}</h1>
+<div cdkDropListGroup>
+    <div cdkDropList cdkDropListOrientation="horizontal">
+        <app-board cdkDropList cdkDrag *ngFor="let board of boards" [board]="board">
+            <mat-icon cdkDragHandle class="handle">drag_indicator</mat-icon>
+        </app-board>
+    </div>
+</div>

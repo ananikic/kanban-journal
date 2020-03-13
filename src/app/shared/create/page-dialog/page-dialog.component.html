@@ -6,7 +6,7 @@
 </div>
 <p>You can also choose a template to...</p>
 <perfect-scrollbar class="container">
-        <mat-radio-group class="template-radio-group" aria-label="Select an option">
+        <mat-radio-group class="template-radio-group" name="templates"  [(ngModel)]="data.selection" aria-label="Select an option">
             <!-- <h5>Organize your days <button mat-button (click)="openTemplate('calendarTemplates')">📅</button></h5> -->
             <h4>organize your days ➡<button class="templ-preview" (click)="openTemplate('calendarTemplates')" mat-icon-button><i>📅</i></button></h4>
             <mat-radio-button class="template-radio-btn" *ngFor="let template of calendarTemplates" [value]="template">
@@ -30,7 +30,7 @@
 
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Cancel</button>
-    <button mat-button [mat-dialog-close]="data.title" cdkFocusInitial>
+    <button mat-button [mat-dialog-close]="[data.title, data.selection]" cdkFocusInitial>
         Create
     </button>
 </div>

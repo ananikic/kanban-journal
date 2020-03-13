@@ -7,10 +7,11 @@ import { FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PageComponent } from './page/page.component';
+import { BoardComponent } from './board/board.component';
 
 
 @NgModule({
-  declarations: [PageComponent],
+  declarations: [PageComponent, BoardComponent],
   imports: [
     CommonModule,
     KanbanRoutingModule,

@@ -1,5 +1,5 @@
 export interface Page {
-    id: string;
+    id?: string;
     title?: string;
     boards?: Board[];
 }
