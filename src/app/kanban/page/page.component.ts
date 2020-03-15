@@ -1,9 +1,8 @@
-import { Page } from './../page.model';
-import { PageIdService } from './../kanban-services/page-id.service';
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Board } from '../page.model';
 import { PageService } from '../kanban-services/page.service';
 import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-page',
@@ -17,12 +16,16 @@ export class PageComponent implements OnInit, OnDestroy {
   boards?: Board[];
   sub: Subscription;
 
-  constructor(private pageService: PageService, private pageIdService: PageIdService) { }
+  constructor(private pageService: PageService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-   this.pageIdService.currentId.subscribe(id => this.id = id);
-   this.sub = this.pageService.findUserPageById(this.id).subscribe(page => {this.title = page.title;
-                                                                            this.boards = page.boards; } );
+    this.route.paramMap.subscribe(params => {
+      this.id = params.get('id');
+    })
+    this.sub = this.pageService.findUserPageById(this.id).subscribe(page => {
+      this.title = page.get('title');
+      this.boards = page.get('boards');
+    });
   }
 
   ngOnDestroy() {

@@ -35,20 +35,11 @@ export class PageService {
   /**
    * This method returns user page by the page id.
    * @param pageId - the id of the page
-   * @returns Promise to a reference to the page
+   * @returns Observable of the found page
    */
   findUserPageById(pageId: string) {
-    return this.afAuth.authState.pipe(
-      switchMap(user => {
-        if (user) {
-         return this.db.collection<Page>('page', ref =>
-         ref.where('uid', '==', user.uid).where('id', '==', pageId)
-         )
-         .valueChanges({ idField: 'id' });
-        } else {
-          return [];
-        }
-      })
-     );
+    const uid = this.afAuth.auth.currentUser.uid;
+    return this.db.collection<Page>("pages", ref =>
+         ref.where('uid', '==', uid)).doc(pageId).get();
   }
 }

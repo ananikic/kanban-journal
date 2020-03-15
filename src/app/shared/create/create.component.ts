@@ -1,4 +1,3 @@
-import { PageIdService } from './../../kanban/kanban-services/page-id.service';
 import { Page } from './../../kanban/page.model';
 import { PageService } from './../../kanban/kanban-services/page.service';
 import { Router } from '@angular/router';
@@ -17,8 +16,7 @@ export class CreateComponent implements OnInit {
   isPremade = false;
   page: Page;
 
-  constructor(public dialog: MatDialog, private pageService: PageService, private db: AngularFirestore, private router: Router,
-              private pageIdService: PageIdService) { }
+  constructor(public dialog: MatDialog, private pageService: PageService, private db: AngularFirestore, private router: Router) { }
 
   ngOnInit() {
   }
@@ -26,18 +24,16 @@ export class CreateComponent implements OnInit {
   openPageDialog(): void {
     const dialogRef = this.dialog.open(PageDialogComponent, {
       width: '400px',
-      data: { }
+      data: {}
     });
-    dialogRef.afterClosed().subscribe( async result => {
+    dialogRef.afterClosed().subscribe(async result => {
       if (result[1]) {
         this.isPremade = true;
         this.page = await this.pageService.createPage(this.isPremade, result[1]);
-      } else  {
+      } else {
         this.page = await this.pageService.createPage(this.isPremade, result[0]);
       }
-      this.pageIdService.changeId(this.page.id);
-      this.router.navigate(['/page', { id: this.page.id }]);
+      this.router.navigate(['/page', this.page.id]);
     });
   }
-
 }
