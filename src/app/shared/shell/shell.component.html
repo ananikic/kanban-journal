@@ -19,6 +19,7 @@
       <button title="fun" mat-button [matMenuTriggerFor]="menuFun">
         <i class="nav">💛</i>
       </button>
+      <a routerLink="page/I8ORJDexDBiBBnnQ6bS0">🐷</a>
       <mat-menu #menuFun="matMenu" xPosition="before">
         <!-- TODO - add bookmared (loved) pages -->
       </mat-menu>
@@ -28,7 +29,7 @@
       <mat-menu #menuSide="matMenu">
         <button mat-menu-item><span><i class="withText">👶</i>Me</span></button>
         <button mat-menu-item><span><i class="withText">💿</i>Archive</span></button>
-        <button mat-menu-item (click)="afAuth.auth.signOut()"><span><i class="withText">👋</i>Logout</span></button>
+        <button mat-menu-item (click)="logout()"><span><i class="withText">👋</i>Logout</span></button>
       </mat-menu>
     </mat-toolbar>
     <mat-toolbar  *ngIf="!(afAuth.authState | async)">

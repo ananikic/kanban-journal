@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Board } from '../page.model';
 import { PageService } from '../kanban-services/page.service';
-import { Subscription } from 'rxjs';
+import { Subscription, pipe } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -21,11 +21,11 @@ export class PageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id');
+      this.sub = this.pageService.findUserPageById(this.id).subscribe(page => {
+        this.title = page.get('title');
+        this.boards = page.get('boards');
+      });
     })
-    this.sub = this.pageService.findUserPageById(this.id).subscribe(page => {
-      this.title = page.get('title');
-      this.boards = page.get('boards');
-    });
   }
 
   ngOnDestroy() {

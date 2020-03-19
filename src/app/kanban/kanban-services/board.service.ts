@@ -13,8 +13,8 @@ export class BoardService {
 
   constructor(private afAuth: AngularFireAuth, private db: AngularFirestore) { }
 
-  public createPremadeBoards(title: string) {
-    switch (title) {
+  public createPremadeBoards(template: string) {
+    switch (template) {
       case 'week': this.premadeBoards = WEEK_BOARDS;
     }
   }

@@ -29,10 +29,8 @@ export class CreateComponent implements OnInit {
     dialogRef.afterClosed().subscribe(async result => {
       if (result[1]) {
         this.isPremade = true;
-        this.page = await this.pageService.createPage(this.isPremade, result[1]);
-      } else {
-        this.page = await this.pageService.createPage(this.isPremade, result[0]);
-      }
+      } 
+      this.page = await this.pageService.createPage(this.isPremade, result[0], result[1]);
       this.router.navigate(['/page', this.page.id]);
     });
   }

@@ -28,4 +28,8 @@ export class ShellComponent {
     this.themeService.update(theme);
   }
 
+  logout() {
+    this.afAuth.auth.signOut();
+  }
+
 }
