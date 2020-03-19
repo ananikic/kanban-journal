@@ -1,3 +1,37 @@
 h1.title {
-    margin-left: 1em;
+  margin-left: 1em;
+}
+
+.page {
+  width: auto;
+  padding-left: 24px;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .handle {
+    position: absolute;
+    top: 13px;
+    right: 15px;
+    cursor: move;
+  }
+}
+
+.cdk-drag-placeholder {
+  opacity: 0.2;
+  width: 320px;
+  border: 5px dashed gray;
+  margin: 0 10px;
+}
+
+.cdk-drag-animating {
+  transition: transform 300ms ease;
+}
+
+.page.cdk-drop-list-dragging .cdk-drag {
+  transition: transform 300ms ease;
 }

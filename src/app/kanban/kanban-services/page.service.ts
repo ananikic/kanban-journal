@@ -21,18 +21,19 @@ export class PageService {
    * @returns Promise to a reference to the created page
    */
   async createPage(isPremade: boolean, pageTitle: string = '', selectedTemplate: string = '') {
-    const user = await this.afAuth.auth.currentUser;
-    if (isPremade) {
-      this.boardServie.createPremadeBoards(selectedTemplate);
-    }
+    const user = this.afAuth.auth.currentUser;
     if (!pageTitle) {
       pageTitle = selectedTemplate;
     }
-    return this.db.collection('pages').add({
+    let page = await this.db.collection('pages').add({
       title: pageTitle,
-      uid: user.uid,
-      boards: this.boardServie.getPremadeBoards()
-    });
+      uid: user.uid
+    })
+    if (isPremade) {
+      this.boardServie.createPremadeBoards(selectedTemplate, page);
+    }
+   
+    return page;
   }
 
   /**
@@ -44,5 +45,9 @@ export class PageService {
     const uid = this.afAuth.auth.currentUser.uid;
     return this.db.collection<Page>("pages", ref =>
       ref.where('uid', '==', uid)).doc(pageId).get();
+  }
+
+  sortBoards(boards: Board[]) {
+    throw new Error("Method not implemented.");
   }
 }

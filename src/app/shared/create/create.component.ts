@@ -27,11 +27,13 @@ export class CreateComponent implements OnInit {
       data: {}
     });
     dialogRef.afterClosed().subscribe(async result => {
-      if (result[1]) {
-        this.isPremade = true;
-      } 
-      this.page = await this.pageService.createPage(this.isPremade, result[0], result[1]);
-      this.router.navigate(['/page', this.page.id]);
+      if (result) {
+        if (result[1]) {
+          this.isPremade = true;
+        }
+        this.page = await this.pageService.createPage(this.isPremade, result[0], result[1]);
+        this.router.navigate(['/page', this.page.id]);
+      }
     });
   }
 }

@@ -1,8 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Board } from '../page.model';
 import { PageService } from '../kanban-services/page.service';
-import { Subscription, pipe } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { CollectionReference, DocumentReference, DocumentData } from '@angular/fire/firestore';
+import { BoardComponent } from '../board/board.component';
+import { BoardService } from '../kanban-services/board.service';
 
 @Component({
   selector: 'app-page',
@@ -14,22 +18,29 @@ export class PageComponent implements OnInit, OnDestroy {
   id?: string;
   title?: string;
   boards?: Board[];
-  sub: Subscription;
+  pageSub: Subscription;
+  boardsSub: Subscription;
 
-  constructor(private pageService: PageService, private route: ActivatedRoute) { }
+  constructor(private pageService: PageService, private boardService: BoardService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id');
-      this.sub = this.pageService.findUserPageById(this.id).subscribe(page => {
+      this.pageSub = this.pageService.findUserPageById(this.id).subscribe(page => {
         this.title = page.get('title');
-        this.boards = page.get('boards');
       });
+      this.boardsSub = this.boardService.findBoards(this.id).subscribe(boards => this.boards = boards);
     })
   }
 
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.boards, event.previousIndex, event.currentIndex);
+    this.pageService.sortBoards(this.boards);
+  }
+
   ngOnDestroy() {
-    this.sub.unsubscribe();
+    this.pageSub.unsubscribe();
+    this.boardsSub.unsubscribe();
   }
 
 }
