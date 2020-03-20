@@ -30,6 +30,7 @@ export class BoardService {
       const id = this.db.createId();
       let board = this.db.collection('pages').doc(page.id).collection('boards').doc(id).ref;
       batch.set(board, {
+        id: id,
         ...boardData,
         uid: user.uid,
         tasks: []

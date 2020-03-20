@@ -1,12 +1,12 @@
 <h1 mat-dialog-title>What's this page about?</h1>
 <div mat-dialog-content>
-    <mat-form-field>
+    <mat-form-field (keypress)="onEnter($event, [data.title, data.selection])">
         <input placeholder="title" matInput [(ngModel)]="data.title" autocomplete="off" />
     </mat-form-field>
 </div>
 <p>You can also choose a template to...</p>
 <perfect-scrollbar class="container">
-        <mat-radio-group class="template-radio-group" name="templates"  [(ngModel)]="data.selection" aria-label="Select an option">
+        <mat-radio-group  (keypress)="onEnter($event, [data.title, data.selection])" class="template-radio-group" name="templates"  [(ngModel)]="data.selection" aria-label="Select an option">
             <!-- <h5>Organize your days <button mat-button (click)="openTemplate('calendarTemplates')">📅</button></h5> -->
             <h4>organize your days ➡<button class="templ-preview" (click)="openTemplate('calendarTemplates')" mat-icon-button><i>📅</i></button></h4>
             <mat-radio-button class="template-radio-btn" *ngFor="let template of calendarTemplates" [value]="template">

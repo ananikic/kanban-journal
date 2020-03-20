@@ -1,6 +1,6 @@
 import { BoardService } from './board.service';
 import { Board, Page } from '../page.model';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Injectable } from '@angular/core';
 
@@ -47,7 +47,10 @@ export class PageService {
       ref.where('uid', '==', uid)).doc(pageId).get();
   }
 
-  sortBoards(boards: Board[]) {
-    throw new Error("Method not implemented.");
+  sortBoards(boards: Board[], pageId: string) {
+    const batch = this.db.firestore.batch();
+    const refs = boards.map(b => this.db.firestore.collection('pages').doc(pageId).collection('boards').doc(b.id));
+    refs.forEach((ref, idx) => batch.update(ref, { priority: idx }));
+    batch.commit();
   }
 }

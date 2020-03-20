@@ -4,8 +4,6 @@ import { PageService } from '../kanban-services/page.service';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { CollectionReference, DocumentReference, DocumentData } from '@angular/fire/firestore';
-import { BoardComponent } from '../board/board.component';
 import { BoardService } from '../kanban-services/board.service';
 
 @Component({
@@ -35,7 +33,7 @@ export class PageComponent implements OnInit, OnDestroy {
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.boards, event.previousIndex, event.currentIndex);
-    this.pageService.sortBoards(this.boards);
+    this.pageService.sortBoards(this.boards, this.id);
   }
 
   ngOnDestroy() {

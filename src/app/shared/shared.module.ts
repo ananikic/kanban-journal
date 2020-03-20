@@ -13,6 +13,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {A11yModule} from '@angular/cdk/a11y'
 import { CreateComponent } from './create/create.component';
 import { PageDialogComponent } from './create/page-dialog/page-dialog.component';
 import { MatRadioModule } from '@angular/material/radio';
@@ -42,8 +43,8 @@ const modules = [CommonModule,
   MatInputModule,
   MatSnackBarModule,
   MatDialogModule,
-  FormsModule,
   MatRadioModule,
+  FormsModule,
   ScrollingModule,
   LayoutModule,
   PerfectScrollbarModule

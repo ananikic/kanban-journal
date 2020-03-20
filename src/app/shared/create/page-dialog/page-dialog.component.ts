@@ -21,6 +21,12 @@ export class PageDialogComponent {
     this.dialogRef.close();
   }
 
+  onEnter(event: KeyboardEvent, result: []) {
+    if (event.key == 'Enter') {
+      this.dialogRef.close(result);
+    }
+  }
+
   openTemplate(template: string): void {
     this.dialog.open(TemplateDialogComponent, {
       width: '1400px',

@@ -5,6 +5,7 @@ import { PageDialogComponent } from './page-dialog/page-dialog.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-create',
@@ -24,8 +25,10 @@ export class CreateComponent implements OnInit {
   openPageDialog(): void {
     const dialogRef = this.dialog.open(PageDialogComponent, {
       width: '400px',
-      data: {}
+      data: {},
+      restoreFocus: false
     });
+    // dialogRef.keydownEvents().pipe(filter(event => event.key == 'ENTER')).subscribe();
     dialogRef.afterClosed().subscribe(async result => {
       if (result) {
         if (result[1]) {
