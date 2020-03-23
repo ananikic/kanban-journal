@@ -12,11 +12,9 @@ export interface Board {
 }
 
 export interface Task {
-    id?: string;
+    // id?: string;
     description?: string;
-    type?: 'task' | 'event' | 'note';
-    label?: 'purple' |  'pink' | 'blue' | 'green' | 'yellow' | 'red' | 'gray';
+    type?: 'task' | 'event' | 'note' | 'checked' | 'noted';
+    color?: 'purple' |  'pink' | 'blue' | 'green' | 'yellow' | 'red' | 'gray' | 'gray-noted';
     important?: boolean;
-    checked?: boolean;
-    sentToFuture?: boolean;
 }

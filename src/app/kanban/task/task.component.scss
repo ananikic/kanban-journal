@@ -1,0 +1,34 @@
+.inner-card {
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.mat-mini-fab {
+    width: 12px !important;
+    height: 12px !important;
+    margin-right: 10px;
+    background-color: inherit;
+}
+
+.important {
+    color: #36e9b6;
+    font-size: 1.4em !important;
+    position: absolute;
+    margin-top: -2px;
+    margin-bottom: 56px;
+    margin-left: -10px;
+}
+
+.purple { background: #b15cff; }
+.pink { background: #ff5c92; }
+.blue { background: #71deff; color: black; }
+.green { background: #36e9b6; color: black; text-decoration: line-through; }
+.yellow { background: #ffcf44; color: black; }
+.red { background: #e74a4a; }
+.gray { background: gray; }
+.gray-noted { background: gray; text-decoration: line-through; }
+
+.task::before { content: "•"; display: block; margin-top: -11px;}
+.event::before { content: "○"; display: block; margin-top: -13px;}
+.note::before { content: "—"; display: block; margin-top: -12px;}
+.checked::before { content: "x"; display: block; margin-top: -13px;}

@@ -9,9 +9,9 @@ import { TemplateDialogComponent } from './template-dialog/template-dialog.compo
 })
 export class PageDialogComponent {
 
-  calendarTemplates: string[] = ['week', 'month', 'year', 'future'];
+  calendarTemplates: string[] = ['week', 'future log'];
   workTemplates: string[] = ['work', 'feynman studying'];
-  wantsTemplates: string[] = ['shopping "list"', 'to read', 'recipes'];
+  wantsTemplates: string[] = ['shopping "lists"', 'to read', 'recipes'];
   youTemplates: string[] = ['feelings and thoughts'];
 
   constructor(public dialogRef: MatDialogRef<PageDialogComponent>,

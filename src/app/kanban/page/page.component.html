@@ -1,7 +1,7 @@
 <p class="title"> {{title}} </p>
 <div cdkDropListGroup>
     <div cdkDropList cdkDropListOrientation="horizontal" class="page" (cdkDropListDropped)="drop($event)">
-        <app-board cdkDropList cdkDrag *ngFor=" let board of boards" [board]="board">
+        <app-board cdkDrag *ngFor=" let board of boards" [board]="board">
             <mat-icon cdkDragHandle class="handle">drag_indicator</mat-icon>
         </app-board>
     </div>

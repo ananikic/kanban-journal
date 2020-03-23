@@ -28,7 +28,6 @@ export class CreateComponent implements OnInit {
       data: {},
       restoreFocus: false
     });
-    // dialogRef.keydownEvents().pipe(filter(event => event.key == 'ENTER')).subscribe();
     dialogRef.afterClosed().subscribe(async result => {
       if (result) {
         if (result[1]) {

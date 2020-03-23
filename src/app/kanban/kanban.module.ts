@@ -8,10 +8,11 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PageComponent } from './page/page.component';
 import { BoardComponent } from './board/board.component';
+import { TaskComponent } from './task/task.component';
 
 
 @NgModule({
-  declarations: [PageComponent, BoardComponent],
+  declarations: [PageComponent, BoardComponent, TaskComponent],
   imports: [
     CommonModule,
     KanbanRoutingModule,

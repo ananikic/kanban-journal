@@ -1,8 +1,15 @@
 <mat-card class="outer-card">
-    <mat-card-header>
-      <!-- Slot for the handle -->
-      <ng-content></ng-content>
-      <mat-card-title class="title">
-        {{ board.title }}
-      </mat-card-title>
-    </mat-card-header>
+  <mat-card-header>
+    <!-- Place for the drag handle -->
+    <ng-content></ng-content>
+    <mat-card-title class="title">
+      {{ board.title }}
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div cdkDropList class="tasks" cdkDropListOrientation="vertical" (cdkDropListDropped)="taskDrop($event)">
+      <app-task cdkDrag *ngFor="let task of board.tasks; let i = index" [task]="task" [index]="i">
+      </app-task>
+    </div>
+  </mat-card-content>
+</mat-card>
