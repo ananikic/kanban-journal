@@ -1,11 +1,12 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, ViewEncapsulation } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { TemplateDialogComponent } from './template-dialog/template-dialog.component';
 
 @Component({
   selector: 'app-page-dialog',
   templateUrl: './page-dialog.component.html',
-  styleUrls: ['./page-dialog.component.scss']
+  styleUrls: ['./page-dialog.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class PageDialogComponent {
 

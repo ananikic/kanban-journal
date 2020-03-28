@@ -15,4 +15,8 @@ export class BoardComponent implements OnInit {
   ngOnInit() {
   }
 
+  taskDrop() {
+    
+  }
+
 }
