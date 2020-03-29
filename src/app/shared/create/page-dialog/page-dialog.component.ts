@@ -5,8 +5,7 @@ import { TemplateDialogComponent } from './template-dialog/template-dialog.compo
 @Component({
   selector: 'app-page-dialog',
   templateUrl: './page-dialog.component.html',
-  styleUrls: ['./page-dialog.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['../dialogs.scss', './page-dialog.component.scss']
 })
 export class PageDialogComponent {
 
@@ -23,7 +22,7 @@ export class PageDialogComponent {
   }
 
   onEnter(event: KeyboardEvent, result: []) {
-    if (event.key == 'Enter') {
+    if (event.key === 'Enter') {
       this.dialogRef.close(result);
     }
   }

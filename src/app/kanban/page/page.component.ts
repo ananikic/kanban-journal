@@ -28,7 +28,7 @@ export class PageComponent implements OnInit, OnDestroy {
         this.title = page.get('title');
       });
       this.boardsSub = this.boardService.findBoards(this.id).subscribe(boards => this.boards = boards);
-    })
+    });
   }
 
   drop(event: CdkDragDrop<string[]>) {

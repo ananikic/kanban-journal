@@ -13,7 +13,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import {A11yModule} from '@angular/cdk/a11y'
+import {A11yModule} from '@angular/cdk/a11y';
 import { CreateComponent } from './create/create.component';
 import { PageDialogComponent } from './create/page-dialog/page-dialog.component';
 import { MatRadioModule } from '@angular/material/radio';
@@ -29,7 +29,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
 
-const components = [ShellComponent];
+const components = [ShellComponent, CreateComponent, PageDialogComponent, TemplateDialogComponent];
 const modules = [CommonModule,
   RouterModule,
   MatToolbarModule,
@@ -51,7 +51,7 @@ const modules = [CommonModule,
 ];
 
 @NgModule({
-  declarations: [components, CreateComponent, PageDialogComponent, TemplateDialogComponent],
+  declarations: [components],
   imports: [modules],
   exports: [components, modules],
   providers: [

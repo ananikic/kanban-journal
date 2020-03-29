@@ -27,22 +27,22 @@ export class BoardService {
     const user = this.afAuth.auth.currentUser;
     const batch = this.db.firestore.batch();
     premadeTemplate.forEach((boardData) => {
-      const id = this.db.createId();
-      let board = this.db.collection('pages').doc(page.id).collection('boards').doc(id).ref;
+      const generatedId = this.db.createId();
+      const board = this.db.collection('pages').doc(page.id).collection('boards').doc(generatedId).ref;
       batch.set(board, {
-        id: id,
+        id: generatedId,
         ...boardData,
         uid: user.uid,
-        tasks: [{description: 'take my clothes from laundry', type: 'task', important: false}, 
-          {description: 'work 8 hours today', type: 'note', color: 'pink', important: false}, 
-          {description: 'swing class', type: 'event', color: 'blue', important: false}, 
-          {description: 'pack my clothes', type: 'task', important: false}, 
-          {description: 'catch a bus at 4pm', type: 'note', important: false}, 
-          {description: 'BUY MY MOM A PRESENT', type: 'note', important: true}, 
-          {description: 'workout', type: 'task', color: 'yellow', important: false}, 
+        tasks: [{description: 'take my clothes from laundry', type: 'task', important: false},
+          {description: 'work 8 hours today', type: 'note', color: 'pink', important: false},
+          {description: 'swing class', type: 'event', color: 'blue', important: false},
+          {description: 'pack my clothes', type: 'task', important: false},
+          {description: 'catch a bus at 4pm', type: 'note', important: false},
+          {description: 'BUY MY MOM A PRESENT', type: 'note', important: true},
+          {description: 'workout', type: 'task', color: 'yellow', important: false},
           {description: 'start coursera course', type: 'task', color: 'pink', important: false}]
-      })
-    })
+      });
+    });
     batch.commit();
   }
 }

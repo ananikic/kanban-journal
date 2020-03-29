@@ -24,7 +24,7 @@ export class AuthGuard implements CanActivate {
       map((authState) => !!authState),
       tap(authenticated => {
         if (!authenticated) {
-          this.snack.authError()
+          this.snack.authError();
         }
       })
     );

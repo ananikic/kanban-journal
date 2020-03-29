@@ -33,7 +33,7 @@
         <button mat-menu-item (click)="logout()"><span><i class="withText">👋</i>Logout</span></button>
       </mat-menu>
     </mat-toolbar>
-    <mat-toolbar  *ngIf="!(afAuth.authState | async)">
+    <mat-toolbar  *ngIf="(afAuth.authState | async) === null">
       <!-- <span class="fill-remaining-space"></span> -->
       <span class="logo" routerLink="/"><span title="home"><i class="withText">📔</i></span>Kanban Journal</span>
       <span class="fill-remaining-space"></span>

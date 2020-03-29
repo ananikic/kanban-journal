@@ -24,8 +24,8 @@ export class TaskComponent implements OnInit {
 
   checkTask(task: Task) {
     if (!this.checked) {
-      if (task.type == 'task' || task.type == 'event') {
-        task.color = 'green'
+      if (task.type === 'task' || task.type === 'event') {
+        task.color = 'green';
       } else {
         task.color = 'gray-noted';
       }

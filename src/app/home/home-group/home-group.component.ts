@@ -15,7 +15,7 @@ export class HomeGroupComponent implements OnInit {
   ngOnInit() {
     this.groupId = this.route.snapshot.paramMap.get('id');
     if (!this.groupId) {
-      this.groupId === '#first'
+      this.groupId === '#first';
     }
   }
 

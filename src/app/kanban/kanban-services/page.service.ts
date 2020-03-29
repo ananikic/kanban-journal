@@ -25,14 +25,13 @@ export class PageService {
     if (!pageTitle) {
       pageTitle = selectedTemplate;
     }
-    let page = await this.db.collection('pages').add({
+    const page = await this.db.collection('pages').add({
       title: pageTitle,
       uid: user.uid
-    })
+    });
     if (isPremade) {
       this.boardServie.createPremadeBoards(selectedTemplate, page);
-    }
-   
+    }  
     return page;
   }
 
@@ -43,7 +42,7 @@ export class PageService {
    */
   findUserPageById(pageId: string) {
     const uid = this.afAuth.auth.currentUser.uid;
-    return this.db.collection<Page>("pages", ref =>
+    return this.db.collection<Page>('pages', ref =>
       ref.where('uid', '==', uid)).doc(pageId).get();
   }
 
