@@ -7,9 +7,12 @@
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <div cdkDropList class="tasks" cdkDropListOrientation="vertical" (cdkDropListDropped)="taskDrop($event)">
-      <app-task cdkDrag *ngFor="let task of board.tasks; let i = index" [task]="task" [index]="i">
-      </app-task>
-    </div>
+      <div cdkDropList id={{board.id}}
+        [cdkDropListData]="board.tasks" class="tasks" cdkDropListOrientation="vertical"
+        (cdkDropListDropped)="taskDrop($event)"
+        [cdkDropListConnectedTo]="getConnectedList()">
+        <app-task cdkDrag *ngFor="let task of board.tasks; let i = index" [task]="task" [index]="i">
+        </app-task>
+      </div>
   </mat-card-content>
 </mat-card>

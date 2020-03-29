@@ -15,7 +15,6 @@ export class TaskComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.task);
   }
 
   openTaskDialog(task: Task, index: number) {
