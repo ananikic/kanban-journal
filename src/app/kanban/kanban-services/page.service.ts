@@ -31,7 +31,7 @@ export class PageService {
     });
     if (isPremade) {
       this.boardServie.createPremadeBoards(selectedTemplate, page);
-    }  
+    }
     return page;
   }
 

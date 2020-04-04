@@ -26,9 +26,8 @@ export class BoardComponent implements OnInit {
   taskDrop(event: CdkDragDrop<Task[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-      this.boardService.sortBoardTasks(event.container.data, this.pageId, this.board.id)
-    }
-    else {
+      this.boardService.sortBoardTasks(event.container.data, this.pageId, this.board.id);
+    } else {
       const previousBoardId = event.previousContainer.id;
       const currentBoardId = event.container.id;
       const removedTask = event.previousContainer.data[event.previousIndex];

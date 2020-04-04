@@ -14,13 +14,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {A11yModule} from '@angular/cdk/a11y';
-import { CreateComponent } from './create/create.component';
-import { PageDialogComponent } from './create/page-dialog/page-dialog.component';
+import { CreatePageComponent } from './create-page/create-page.component';
+import { PageDialogComponent } from './create-page/page-dialog/page-dialog.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { FormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
-import { TemplateDialogComponent } from './create/page-dialog/template-dialog/template-dialog.component';
+import { TemplateDialogComponent } from './create-page/page-dialog/template-dialog/template-dialog.component';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
@@ -29,7 +29,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
 
-const components = [ShellComponent, CreateComponent, PageDialogComponent, TemplateDialogComponent];
+const components = [ShellComponent, CreatePageComponent, PageDialogComponent, TemplateDialogComponent];
 const modules = [CommonModule,
   RouterModule,
   MatToolbarModule,

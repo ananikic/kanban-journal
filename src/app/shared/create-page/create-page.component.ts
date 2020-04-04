@@ -1,5 +1,5 @@
-import { Page } from './../../kanban/page.model';
-import { PageService } from './../../kanban/kanban-services/page.service';
+import { Page } from '../../kanban/page.model';
+import { PageService } from '../../kanban/kanban-services/page.service';
 import { Router } from '@angular/router';
 import { PageDialogComponent } from './page-dialog/page-dialog.component';
 import { Component, OnInit } from '@angular/core';
@@ -8,11 +8,11 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { filter } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-create',
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.scss']
+  selector: 'app-create-page',
+  templateUrl: './create-page.component.html',
+  styleUrls: ['./create-page.component.scss']
 })
-export class CreateComponent implements OnInit {
+export class CreatePageComponent implements OnInit {
 
   isPremade = false;
   page: Page;
