@@ -16,11 +16,12 @@ export class PageService {
    * If the title is not provided but some of the premade template options is selected, it takes that options template name as a title,
    * and creates additional boards depending on the selected premade template.
    * If niether title is provided, nor a premade template option is select, the page is created without a title and without boards.
+   * @param isPremade - tells if the page has premade template
    * @param pageTitle - title for the page. The default is empty string.
    * @param selectedTemplate - premade template name if such is selected, the default is empty string.
    * @returns Promise to a reference to the created page
    */
-  async createPage(isPremade: boolean, pageTitle: string = '', selectedTemplate: string = '') {
+  public async createPage(isPremade: boolean, pageTitle: string = '', selectedTemplate: string = '') {
     const user = this.afAuth.auth.currentUser;
     if (!pageTitle) {
       pageTitle = selectedTemplate;
@@ -40,13 +41,18 @@ export class PageService {
    * @param pageId - the id of the page
    * @returns Observable of the found page
    */
-  findUserPageById(pageId: string) {
+  public findUserPageById(pageId: string) {
     const uid = this.afAuth.auth.currentUser.uid;
     return this.db.collection<Page>('pages', ref =>
       ref.where('uid', '==', uid)).doc(pageId).get();
   }
 
-  sortBoards(boards: Board[], pageId: string) {
+  /**
+   * This method sorts the boards in the page when user drags and drops some board. 
+   * @param boards - all of the boards in the page
+   * @param pageId - the id of the page
+   */
+  public sortBoards(boards: Board[], pageId: string) {
     const batch = this.db.firestore.batch();
     const refs = boards.map(b => this.db.firestore.collection('pages').doc(pageId).collection('boards').doc(b.id));
     refs.forEach((ref, idx) => batch.update(ref, { priority: idx }));
