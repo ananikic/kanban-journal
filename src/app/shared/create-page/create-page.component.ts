@@ -17,7 +17,7 @@ export class CreatePageComponent implements OnInit {
   isPremade = false;
   page: Page;
 
-  constructor(public dialog: MatDialog, private pageService: PageService, private db: AngularFirestore, private router: Router) { }
+  constructor(public dialog: MatDialog, private pageService: PageService, private router: Router) { }
 
   ngOnInit() {
   }

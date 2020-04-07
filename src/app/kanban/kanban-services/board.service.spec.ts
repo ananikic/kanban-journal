@@ -4,23 +4,23 @@ import { BoardService } from './board.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 
-let boardService: BoardService;
-const afAuthSpy = jasmine.createSpy('afAuth');
-const dbSpy = jasmine.createSpy('db');
-
 describe('Service: BoardService', () => {
+  let boardService: BoardService;
+  const afAuthSpy = jasmine.createSpy('afAuth');
+  const dbSpy = jasmine.createSpy('db');
+
   beforeEach(() => TestBed.configureTestingModule({
-      providers: [BoardService,
-        {
-          provide: AngularFireAuth,
-          useValue: afAuthSpy
-        },
-        {
-          provide: AngularFirestore,
-          useValue: dbSpy
-        }]
+    providers: [BoardService,
+      {
+        provide: AngularFireAuth,
+        useValue: afAuthSpy
+      },
+      {
+        provide: AngularFirestore,
+        useValue: dbSpy
+      }]
   }));
-  
+
   beforeEach(inject([BoardService],
     (service: BoardService) => {
       boardService = service;

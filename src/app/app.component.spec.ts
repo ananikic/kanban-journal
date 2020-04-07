@@ -1,35 +1,30 @@
-import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { ThemeService } from './services/theme.service';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
-describe('AppComponent', () => {
+describe('Component: AppComponent', () => {
+  const themeServiceSpy = jasmine.createSpyObj('theme', ['load']);
+  let appComponent: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
+      declarations: [AppComponent],
+      providers: [{ provide: ThemeService, useValue: themeServiceSpy }],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
+    fixture = TestBed.createComponent(AppComponent);
+    appComponent = fixture.componentInstance;
+    fixture.detectChanges();
   }));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+  it('should create the app component', () => {
+    expect(appComponent).toBeTruthy();
   });
 
-  it(`should have as title 'kanban-journal'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('kanban-journal');
+  it(`should have a title 'kanban-journal'`, () => {
+    expect(appComponent.title).toEqual('kanban-journal');
   });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('kanban-journal app is running!');
-  });
+  
 });
