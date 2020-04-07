@@ -1,4 +1,4 @@
-import { config } from './protractor.conf';
+import config from './protractor.conf';
 
 config.capabilities = {
   browserName: 'chrome',
