@@ -10,7 +10,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 describe('Component: PageComponent', () => {
   let pageServiceSpy = jasmine.createSpyObj('pageService', ['sortBoards', 'findUserPageById']);
   let boardServiceSpy = jasmine.createSpyObj('boardService', ['findBoards']);
-  let routeSpy = {paramMap: of({id: '123'}) };
+  let routeSpy = {paramMap: jasmine.createSpyObj('paramMap', {'get': of({id: '123'}), 'subscribe': null })};
   let component: PageComponent;
   let fixture: ComponentFixture<PageComponent>;
 
