@@ -48,7 +48,7 @@ export class PageService {
   }
 
   /**
-   * This method sorts the boards in the page when user drags and drops some board. 
+   * This method sorts the boards in the page when user drags and drops some board.
    * @param boards - all of the boards in the page
    * @param pageId - the id of the page
    */

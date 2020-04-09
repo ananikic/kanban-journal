@@ -53,5 +53,5 @@ describe('Component: EmailLoginComponent', () => {
     const bannerElement: HTMLElement = fixture.nativeElement;
     expect(bannerElement.textContent).not.toContain('Sign in');
   });
-  
+
 });

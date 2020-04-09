@@ -26,5 +26,5 @@ describe('Component: AppComponent', () => {
   it(`should have a title 'kanban-journal'`, () => {
     expect(appComponent.title).toEqual('kanban-journal');
   });
-  
+
 });

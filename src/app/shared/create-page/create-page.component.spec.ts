@@ -5,9 +5,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { PageService } from 'src/app/kanban/kanban-services/page.service';
 import { Router } from '@angular/router';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
-describe('TODO Component: CreateComponent', () => {
-  const matDialogSpy = jasmine.createSpyObj('dialog', ['open']);
+describe('Component: CreateComponent', () => {
+  let matDialogSpy = jasmine.createSpyObj('dialog', ['open']);
   const pageServiceSpy = jasmine.createSpyObj('pageService', ['createPage']);
   const routerSpy = jasmine.createSpyObj('router', ['navigate']);
   let component: CreatePageComponent;
@@ -33,4 +34,12 @@ describe('TODO Component: CreateComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should open dialog on button click', () => {
+    let buttonDe  = fixture.debugElement.query(By.css('.create'));
+    let buttonEl = buttonDe.nativeElement;
+    buttonEl.click();
+    expect(matDialogSpy.open.calls.count()).toBe(1, 'spy method called once');
+  });
+
 });

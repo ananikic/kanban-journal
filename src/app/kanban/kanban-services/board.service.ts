@@ -37,7 +37,7 @@ export class BoardService {
 
   /**
    * Sorts tasks in one board. Should be called only when task is dragged and dropped in the same board.
-   * @param tasks - whole tasks array of the board 
+   * @param tasks - whole tasks array of the board
    * @param pageId - id of the page where the board is
    * @param boardId - id of the board where the tasks are
    */
