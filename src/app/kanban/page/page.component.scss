@@ -39,3 +39,15 @@ p.title {
 .page.cdk-drop-list-dragging .cdk-drag {
   transition: transform 300ms ease;
 }
+
+.board-container {
+  border: 5px gray dashed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  padding-right: 10px;
+  min-width: 320px;
+  min-height: 470px;
+  padding: 10px;
+}

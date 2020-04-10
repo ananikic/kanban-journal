@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { BoardService } from '../kanban-services/board.service';
+import { MatDialog } from '@angular/material/dialog';
+import { BoardDialogComponent } from './board-dialog/board-dialog.component';
 
 @Component({
   selector: 'app-page',
@@ -19,7 +21,8 @@ export class PageComponent implements OnInit, OnDestroy {
   pageSub: Subscription;
   boardsSub: Subscription;
 
-  constructor(private pageService: PageService, private boardService: BoardService, private route: ActivatedRoute) { }
+  constructor(private pageService: PageService, private boardService: BoardService, 
+              private route: ActivatedRoute, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -28,6 +31,19 @@ export class PageComponent implements OnInit, OnDestroy {
         this.title = page.get('title');
       });
       this.boardsSub = this.boardService.findBoards(this.id).subscribe(boards => this.boards = boards);
+    });
+  }
+
+  openBoardDialog(): void {
+    const dialogRef = this.dialog.open(BoardDialogComponent, {
+      width: '400px',
+      data: {},
+      restoreFocus: false
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+         this.boardService.createBoard({title: result, priority: this.boards.length}, this.id);
+      }
     });
   }
 

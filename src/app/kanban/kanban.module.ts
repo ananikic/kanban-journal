@@ -9,10 +9,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { PageComponent } from './page/page.component';
 import { BoardComponent } from './board/board.component';
 import { TaskComponent } from './task/task.component';
+import { BoardDialogComponent } from './page/board-dialog/board-dialog.component';
 
 
 @NgModule({
-  declarations: [PageComponent, BoardComponent, TaskComponent],
+  declarations: [PageComponent, BoardComponent, TaskComponent, BoardDialogComponent],
   imports: [
     CommonModule,
     KanbanRoutingModule,
@@ -20,6 +21,7 @@ import { TaskComponent } from './task/task.component';
     FormsModule,
     DragDropModule,
     MatDialogModule
-  ]
+  ],
+  entryComponents: [BoardDialogComponent]
 })
 export class KanbanModule { }

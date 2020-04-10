@@ -24,6 +24,22 @@ export class BoardService {
     }
   }
 
+  /**
+   * Creates board on a page.
+   * @param data - data obtained from the board dialog
+   * @param pageId - id of the page
+   */
+  public createBoard(data: Board, pageId: string) {
+    const user = this.afAuth.auth.currentUser;
+    const generatedId = this.db.createId();
+    const board = this.db.collection('pages').doc(pageId).collection('boards').doc(generatedId).ref;
+    board.set({
+      id: generatedId,
+      ...data,
+      uid: user.uid,
+      tasks: []});
+  }
+
 /**
  * Finds user boards by provided page id.
  * @param pageId - the id of the page
