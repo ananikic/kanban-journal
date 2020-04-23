@@ -24,7 +24,6 @@ import { TemplateDialogComponent } from './create-page/page-dialog/template-dial
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
-import { BoardDialogComponent } from '../kanban/page/board-dialog/board-dialog.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -45,6 +44,7 @@ const modules = [CommonModule,
   MatSnackBarModule,
   MatDialogModule,
   MatRadioModule,
+  A11yModule,
   FormsModule,
   ScrollingModule,
   LayoutModule,

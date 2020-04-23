@@ -1,6 +1,7 @@
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Component } from '@angular/core';
 import { ThemeService } from './../../services/theme.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shell',
@@ -22,7 +23,7 @@ export class ShellComponent {
     }
   ];
 
-  constructor(public themeService: ThemeService, public afAuth: AngularFireAuth) { }
+  constructor(public themeService: ThemeService, public afAuth: AngularFireAuth, public router: Router) { }
 
   setTheme(theme: string) {
     this.themeService.update(theme);
@@ -30,6 +31,7 @@ export class ShellComponent {
 
   logout() {
     this.afAuth.auth.signOut();
+    this.router.navigate(['/'])
   }
 
 }

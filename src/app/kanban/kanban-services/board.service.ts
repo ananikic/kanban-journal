@@ -51,43 +51,6 @@ export class BoardService {
       ref.where('uid', '==', user.uid).orderBy('priority')).valueChanges();
   }
 
-  /**
-   * Sorts tasks in one board. Should be called only when task is dragged and dropped in the same board.
-   * @param tasks - whole tasks array of the board
-   * @param pageId - id of the page where the board is
-   * @param boardId - id of the board where the tasks are
-   */
-  public sortBoardTasks(tasks: Task[], pageId: string, boardId: string) {
-    return this.db.collection('pages').doc(pageId).collection('boards').doc(boardId).update({ tasks });
-  }
-
-  public removeTask(boardId: string, pageId: string, task: Task) {
-    return this.db.collection('pages').doc(pageId)
-      .collection('boards').doc(boardId)
-      .update({
-        tasks: firebase.firestore.FieldValue.arrayRemove(task)
-      });
-  }
-
-  /**
-   * Sorts the tasks between boards. Should be called when the task is dragged and dropped between different boards.
-   * @param previousBoardId - id of the board from which the task is taken
-   * @param currentBoardId - id of the board to which the task is dropped
-   * @param task - dragged and dropped task
-   * @param currentTasks - whole tasks array where the task is dropped
-   * @param pageId - id of the page
-   */
-  public transferTask(previousBoardId: string, currentBoardId: string, task: Task, currentTasks: Task[], pageId: string) {
-    const batch = this.db.firestore.batch();
-    const prevBoardRef = this.db.collection('pages').doc(pageId)
-    .collection('boards').doc(previousBoardId).ref;
-    const currBoardRef = this.db.collection('pages').doc(pageId)
-    .collection('boards').doc(currentBoardId).ref;
-    batch.update(prevBoardRef, { tasks: firebase.firestore.FieldValue.arrayRemove(task) });
-    batch.update(currBoardRef, { currentTasks });
-    batch.commit();
-  }
-
   private createBoards(page: DocumentReference, premadeTemplate: Board[]) {
     const user = this.afAuth.auth.currentUser;
     const batch = this.db.firestore.batch();

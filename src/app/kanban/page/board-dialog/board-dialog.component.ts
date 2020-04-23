@@ -8,6 +8,14 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dial
 })
 export class BoardDialogComponent {
 
+  emojis: string[] = ['🧘', '🧗', '🧜', '👫', '🤹‍♂️',
+                      '🐜', '🐤', '🐫', '🐔', '🐬',
+                      '🐒', '🐘', '🐟', '🐸', '🦒',
+                      '🐹', '🦎',
+                      '🍂', '🍀', '🌴', '🌻', '🌺',
+                      '🤞', '👌', '✍', '🙌', '🙏',
+                      '🚀', '💭', '💡', '🍴', '💰'];
+
   constructor(public dialogRef: MatDialogRef<BoardDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any, public dialog: MatDialog ) { }
 
@@ -19,6 +27,13 @@ export class BoardDialogComponent {
       if (event.key === 'Enter') {
         this.dialogRef.close(result);
       }
+    }
+
+    appendToTitle(title: string, emoji: string) {
+      if(!title) {
+        return emoji;
+      }
+      return title + emoji;
     }
 
 }

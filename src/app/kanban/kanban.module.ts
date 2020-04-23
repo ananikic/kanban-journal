@@ -10,10 +10,11 @@ import { PageComponent } from './page/page.component';
 import { BoardComponent } from './board/board.component';
 import { TaskComponent } from './task/task.component';
 import { BoardDialogComponent } from './page/board-dialog/board-dialog.component';
+import { TaskDialogComponent } from './task/task-dialog/task-dialog.component';
 
 
 @NgModule({
-  declarations: [PageComponent, BoardComponent, TaskComponent, BoardDialogComponent],
+  declarations: [PageComponent, BoardComponent, TaskComponent, BoardDialogComponent, TaskDialogComponent],
   imports: [
     CommonModule,
     KanbanRoutingModule,
@@ -22,6 +23,6 @@ import { BoardDialogComponent } from './page/board-dialog/board-dialog.component
     DragDropModule,
     MatDialogModule
   ],
-  entryComponents: [BoardDialogComponent]
+  entryComponents: [BoardDialogComponent, TaskDialogComponent]
 })
 export class KanbanModule { }

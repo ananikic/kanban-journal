@@ -1,9 +1,15 @@
 <h1 mat-dialog-title>Board</h1>
 <div mat-dialog-content (keypress)="onEnter($event, data.title)">
-<p>What shall we call this board?</p>
+  <p>What shall we call this board?</p>
   <mat-form-field>
     <input autocomplete="off" placeholder="title" matInput [(ngModel)]="data.title" />
   </mat-form-field>
+  <p>Shall we choose some random emoji?</p>
+  <!-- <perfect-scrollbar class="container"> -->
+    <button mat-icon-button *ngFor="let emoji of emojis" (click)="data.title = appendToTitle(data.title, emoji)" [value]="emoji">
+      {{emoji}}
+    </button>
+  <!-- </perfect-scrollbar> -->
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancel</button>

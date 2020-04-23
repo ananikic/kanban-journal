@@ -6,6 +6,28 @@
     padding: 10px;
 }
 
-.title{
+.inner-card {
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.title {
     font-family: "note_thisregular", Roboto, "Helvetica Neue", sans-serif;
+}
+
+.cdk-drag-animating {
+    transition: transform 300ms ease;
+  }
+  
+  .tasks.cdk-drop-list-dragging .cdk-drag {
+    transition: transform 300ms ease;
+  }
+
+.cdk-drag-placeholder {
+  opacity: 0.5;
+}
+
+
+.tasks.cdk-drop-list-dragging {
+    transition: transform 300ms ease;
 }

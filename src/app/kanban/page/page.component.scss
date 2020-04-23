@@ -9,6 +9,7 @@ p.title {
 .page {
   width: auto;
   padding-left: 24px;
+  margin-right: 18px;
   display: flex;
   flex-direction: row;
   overflow-x: scroll;
@@ -40,12 +41,13 @@ p.title {
   transition: transform 300ms ease;
 }
 
-.board-container {
+.board-btn-container {
   border: 5px gray dashed;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: 10px;
+  margin-right: 10px;
   padding-right: 10px;
   min-width: 320px;
   min-height: 470px;

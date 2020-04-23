@@ -1,7 +1,13 @@
-<div class="inner-card" (click)="openTaskDialog(task, index)">
+<!-- <div class="inner-card" (click)="openTaskDialog(task, index)">
     <mat-card [ngClass]="task.color">
         <span class="important" *ngIf="task.important">*</span>
         <button class="mat-mini-fab" [ngClass]="task.type" (click)="checkTask(task)"></button>
         <span>{{ task.description }}</span>
     </mat-card>
-</div>
+</div> -->
+
+<mat-card [ngClass]="task.color">
+    <span class="important" *ngIf="task.important">*</span>
+    <button class="mat-mini-fab" [ngClass]="task.type" (click)="checkTask(task)"></button>
+    <span>{{ task.description }}</span>
+</mat-card>

@@ -1,5 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Task } from '../page.model';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Task, Board } from '../page.model';
+import { MatDialog } from '@angular/material/dialog';
+import { TaskDialogComponent } from './task-dialog/task-dialog.component';
+import { TaskService } from '../kanban-services/task.service';
 
 @Component({
   selector: 'app-task',
@@ -10,15 +13,29 @@ export class TaskComponent implements OnInit {
 
   @Input() task: Task;
   @Input() index: number;
+  @Input() board: Board;
+  @Input() pageId: string;
   checked = false;
 
-  constructor() { }
+  constructor(private dialog: MatDialog, private taskService: TaskService) { }
 
   ngOnInit() {
   }
 
-  openTaskDialog(task: Task, index: number) {
+  openTaskDialog(task?: Task, index?: number) {
+    const dialogRef = this.dialog.open(TaskDialogComponent, {
+      width: '500px',
+      data: { task: { ...task }, isNew: false,  boardId: this.board.id, index }
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        if (!result.isNew) {
+          const update = this.board.tasks;
+          update.splice(result.index, 1, result.task);
+          this.taskService.updateTasks(this.pageId, this.board.id, this.board.tasks);
+      }
+    }});
   }
 
   checkTask(task: Task) {

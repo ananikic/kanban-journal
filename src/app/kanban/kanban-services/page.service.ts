@@ -1,6 +1,6 @@
 import { BoardService } from './board.service';
 import { Board, Page } from '../page.model';
-import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Injectable } from '@angular/core';
 

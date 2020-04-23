@@ -6,24 +6,27 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { ThemeService } from 'src/app/services/theme.service';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { MatMenuModule } from '@angular/material/menu';
+import { Router } from '@angular/router';
 
 describe('Component: ShellComponent', () => {
-  let themeServiceSpy = jasmine.createSpyObj('theme', {'currentActive': 'light', 'update': null});
+  let themeServiceSpy = jasmine.createSpyObj('theme', { 'currentActive': 'light', 'update': null });
   const afAuthSpy = {
-    authState: of({uid: '123456'})
+    authState: of({ uid: '123456' })
   };
   let component: ShellComponent;
   let fixture: ComponentFixture<ShellComponent>;
+  const routerSpy = jasmine.createSpyObj('router', ['navigate'])
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [MatMenuModule],
-      declarations: [ ShellComponent ],
-      providers: [{provide: AngularFireAuth, useValue: afAuthSpy},
-        {provide: ThemeService, useValue: themeServiceSpy}],
+      declarations: [ShellComponent],
+      providers: [{ provide: AngularFireAuth, useValue: afAuthSpy },
+      { provide: ThemeService, useValue: themeServiceSpy },
+      { provide: Router, useValue: routerSpy}],
       schemas: [NO_ERRORS_SCHEMA]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

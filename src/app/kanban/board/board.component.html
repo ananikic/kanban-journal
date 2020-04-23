@@ -6,13 +6,14 @@
       {{ board.title }}
     </mat-card-title>
   </mat-card-header>
-  <mat-card-content>
-      <div cdkDropList id={{board.id}}
-        [cdkDropListData]="board.tasks" class="tasks" cdkDropListOrientation="vertical"
-        (cdkDropListDropped)="taskDrop($event)"
-        [cdkDropListConnectedTo]="getConnectedList()">
-        <app-task cdkDrag *ngFor="let task of board.tasks; let i = index" [task]="task" [index]="i">
-        </app-task>
-      </div>
-  </mat-card-content>
+  <div cdkDropList class="tasks" id={{board.id}} [cdkDropListData]="board.tasks" cdkDropListOrientation="vertical"
+    (cdkDropListDropped)="taskDrop($event)" [cdkDropListConnectedTo]="getConnectedList()">
+    <div cdkDrag class="inner-card" *ngFor="let task of board.tasks; let i = index" (click)="openTaskDialog(task, i)">
+      <app-task [task]="task" [index]="i" [board]="board" [pageId]="pageId">
+      </app-task>
+    </div>
+  </div>
+  <button mat-stroked-button (click)="openTaskDialog()">
+    <mat-icon>add</mat-icon>
+  </button>
 </mat-card>
