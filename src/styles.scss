@@ -36,7 +36,7 @@ $custom-orange: (
 
 $kanban-journal-primary: mat-palette($mat-green);
 $kanban-journal-accent: mat-palette($mat-green, A200, A100, A400);
-$kanban-journal-warn: mat-palette($mat-green);
+$kanban-journal-warn: mat-palette($custom-orange);
 
 $kanban-journal-theme-dark: mat-dark-theme($kanban-journal-primary, $kanban-journal-accent, $kanban-journal-warn);
 $kanban-journal-theme-light: mat-light-theme($kanban-journal-primary, $kanban-journal-accent, $kanban-journal-warn);

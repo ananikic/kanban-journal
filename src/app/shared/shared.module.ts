@@ -24,12 +24,13 @@ import { TemplateDialogComponent } from './create-page/page-dialog/template-dial
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { DeleteButtonComponent } from './delete-button/delete-button.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
 
-const components = [ShellComponent, CreatePageComponent, PageDialogComponent, TemplateDialogComponent];
+const components = [ShellComponent, CreatePageComponent, DeleteButtonComponent, PageDialogComponent, TemplateDialogComponent];
 const modules = [CommonModule,
   RouterModule,
   MatToolbarModule,
@@ -52,7 +53,7 @@ const modules = [CommonModule,
 ];
 
 @NgModule({
-  declarations: [components],
+  declarations: [components, DeleteButtonComponent],
   imports: [modules],
   exports: [components, modules],
   providers: [

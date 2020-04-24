@@ -4,6 +4,7 @@ import { CdkDragDrop, transferArrayItem, moveItemInArray } from '@angular/cdk/dr
 import { TaskService } from '../kanban-services/task.service';
 import { TaskDialogComponent } from '../task/task-dialog/task-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { BoardService } from '../kanban-services/board.service';
 
 @Component({
   selector: 'app-board',
@@ -16,7 +17,7 @@ export class BoardComponent implements OnInit {
   @Input() pageBoards: Board[];
   @Input() pageId: string;
 
-  constructor(private taskService: TaskService, private dialog: MatDialog) { }
+  constructor(private boardService: BoardService, private taskService: TaskService, private dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -58,6 +59,10 @@ export class BoardComponent implements OnInit {
       }
     });
 
+  }
+
+  handleDelete() {
+    this.boardService.deleteBoard(this.board.id, this.pageId);
   }
 
 }

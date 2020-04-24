@@ -51,6 +51,12 @@ export class BoardService {
       ref.where('uid', '==', user.uid).orderBy('priority')).valueChanges();
   }
 
+  public deleteBoard(boardId: string, pageId: string) {
+    const user = this.afAuth.auth.currentUser;
+    return this.db.collection('pages').doc(pageId).collection<Board>('boards', ref =>
+      ref.where('uid', '==', user.uid)).doc(boardId).delete();
+  }
+
   private createBoards(page: DocumentReference, premadeTemplate: Board[]) {
     const user = this.afAuth.auth.currentUser;
     const batch = this.db.firestore.batch();
@@ -73,4 +79,6 @@ export class BoardService {
     });
     batch.commit();
   }
+
+
 }
